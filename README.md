@@ -1,60 +1,118 @@
 # IPFS 分享资源快速上手及其适用场景浅议
 
-原文章链接：https://cangku.moe/archives/212530
-
 ## 摘要
 
-本文详细介绍了 IPFS（星际文件系统）的使用方法、优缺点及其在资源分享中的应用场景。文章首先讲解了 IPFS 的基本操作，包括文件的上传、固定、分享和下载。随后，介绍了 IPFS 本地文件管理和使用托管平台的方法。最后，文章对比了 IPFS 与传统网盘分享方案，分析了 IPFS 在应对倒卖者问题上的优势。
+本文详细介绍了 IPFS（星际文件系统）的使用方法、优缺点及其在资源分享中的应用场景。文章首先讲解了 IPFS 的基本操作，包括文件的上传、固定、分享和下载。随后，介绍了 IPFS 本地文件管理和使用托管平台的方法。最后，文章对比了 IPFS 与传统网盘分享方案，提出了分场景使用不同级别分享方案的建议， 分析了 IPFS 作为最终手段，在应对恶意举报问题上的优势。
+
+
+**更新**：
+
+20241103：4.4 节更新 IPNS 用法相关内容介绍，可以在无服务器的情况下创建类似于域名的网址用于可更新的分享，详见目录；同时修正了一些文章错漏。
+
+
+**文章目录**
+![](https://img.picgo.net/2024/12/05/8ab4996ce7b644b67ceb75cfb11e36839a6758ec35c7cc84.webp)
+
+【[IPFS分享工作流](https://cangku.moe/archives/213504)】
 
 ## 关于 IPFS 的几个要点：
 
-1. IPFS 上传和下载都**不需要公网 IP，也不需要 VPS**，但是注意如果挂了梯子【**不能开启 TUN 模式**】。
-2. IPFS 发布文件需要先**固定**（类比磁链的做种），然后可以通过浏览器整合下载。
+1. IPFS 上传和下载都**不需要公网 IP，也不需要 VPS**，但是注意如果挂了梯子【**不要开启 TUN 模式**】。
+2. IPFS 发布文件需要先**固定**（类比 BT 的做种），然后可以通过浏览器整合下载。
 3. IPFS 除了自己固定（做种），也可以选择**托管平台**托管，代为做种。
 3. IPFS 发布的文件大部分都可以**直连下载**。
 
-先在这里下载 IPFS 客户端并安装：https://docs.ipfs.tech/install/ipfs-desktop/#windows
+先在这里下载 IPFS 客户端并安装：
+
+https://docs.ipfs.tech/install/ipfs-desktop/#windows
+
 以下是操作流程的详细说明。
+
+如果上面的链接打不开，或者找不到，可以从下面的备用镜像链接下载（）
+
+> 百度网盘：[https://pan.baidu.com/s/1MI6QKUI8abkl0MmiTLhHtA?pwd=u2xt](https://pan.baidu.com/s/1MI6QKUI8abkl0MmiTLhHtA?pwd=u2xt)
+> 
+> IPFS 直链：[https://gw-seattle.crustcloud.io/ipfs/bafybeifh2jdor3r26x4adskx2rlz33ada64mducx2iq6oa3iqh5ir42zby?filename=IPFS-Desktop-Setup-0.38.0.exe](https://gw-seattle.crustcloud.io/ipfs/bafybeifh2jdor3r26x4adskx2rlz33ada64mducx2iq6oa3iqh5ir42zby?filename=IPFS-Desktop-Setup-0.38.0.exe)
+
+以下是操作流程的详细说明。
+
 
 ## 1. 固定并分享文件
 
-### 1.1. 固定想要共享的文件
+### 1.1 固定想要共享的文件
 
-![image](https://github.com/user-attachments/assets/7f7f8126-2f68-4414-b830-6eece32f7ac5)
+在 IPFS 中，每一个文件都有一个独一无二的标识符 CID ，CID 在 IPFS 中就对应具体文件，类似于 BT 的磁链，因此**分享 CID 就等于分享文件**，下载时只需要知道 CID 即可下载文件。
 
+CID 的示例如下（有两种格式 v0 和 v1，分别以 Qm 和 ba 开头）：
+
+```
+QmPKhevNWUx89XBU82XF4UYs2xsdxZnG2xPz2uZsA6Yatm  
+bafybeibcr7x6d2bo43ce6xaye6d6aogvbfmeokphpsvjlqv27udl34ads4
+```
+
+目前推荐使用后者。
+
+在配置中的 Import 部分把 CidVersion 参数改为 1 ，然后保存并重启 IPFS 即可。
+
+![2622b838c9ffae6bff2194898b9fbb31.webp](https://file.cangku.moe/images/2622b838c9ffae6bff2194898b9fbb31.webp)
+
+配置完毕后，就可以开始固定文件了
+
+![](obsidian_img/Clip_2024-06-30_20-08-15.png)
 
 右键点击上传后的文件，设置固定
 
-![image](https://github.com/user-attachments/assets/81be16a6-c017-4a90-834d-f407659caab1)
-
+![](obsidian_img/Clip_2024-06-30_20-11-37.png)
 
 固定在本地节点
 
-![image](https://github.com/user-attachments/assets/767a1f94-6f62-4e21-8bcd-23e797eb5e7b)
+![](obsidian_img/Clip_2024-06-30_20-12-19.png)
 
-
-### 1.2. 复制 CID 以发布文件
+### 1.2 复制 CID 以发布文件
 
 固定成功后再次点击右键，选择复制 CID ，就可以发布文件了。
 
-CID 的示例如下：
-```cid
-QmPKhevNWUx89XBU82XF4UYs2xsdxZnG2xPz2uZsA6Yatm
+可以采用分享链接的方式分享文件，由于默认的公共网关被墙了，在分享前需要修改 IPFS 的公共网关，可以修改为以下网关中的一个：
+
+可用 IPFS 公共网关（随时更新）
+```
+https://eth.sucks
+https://flk-ipfs.xyz
+https://cdn.ipfsscan.io
+https://gw-seattle.crustcloud.io
+https://gw.crustgw.work
+https://gw.crust-gateway.xyz
+https://gateway.ipfsscan.io
 ```
 
-CID 在 IPFS 中对应具体文件，类似于磁链中的哈希值，因此分享 CID 就等于分享文件，下载时只需要知道 CID 即可下载文件。
+![](../obsidian_img/6d4b9322548aaf6cb90f580afda8c06a.webp)
+
+然后右键文件-分享链接即可
+
+![79b302b20e96503aab461e9af616234c.webp](https://file.cangku.moe/images/79b302b20e96503aab461e9af616234c.webp)
+
+![b06de1123161326c350d2207be76cb7c.webp](https://file.cangku.moe/images/b06de1123161326c350d2207be76cb7c.webp)
+
+  
+在下面的网址可以找到更多的可用公共网关
+
+[https://ipfs.github.io/public-gateway-checker/](https://ipfs.github.io/public-gateway-checker/)
 
 在说明下载前，可以检测一下自己网络的可用性。
 
-此网址可以检查自己的 IPFS 网络的可用性：https://check.ipfs.network/ ，
+此网址可以检查自己的 IPFS 网络的可用性：
+
+https://check.ipfs.network/ 
+
 下面的 4 个检查得至少满足前 3 个，如果你有公网 IP 则会有第 4 个。
 
-![image](https://github.com/user-attachments/assets/1bfb2db5-7d79-4e82-92b2-9b2c4879d5a2)
+![](obsidian_img/Clip_2024-07-01_10-33-32.png)
 
-![image](https://github.com/user-attachments/assets/6464c04c-4d60-47c5-8e97-ead6d8ad91ed)
+![](obsidian_img/Clip_2024-06-30_19-59-13.png)
 
+### 1.3 开启 DHT 加速
 
-### 1.3. 开启 DHT 加速
+**20241009 更新：实际测试，DHT 加速会显著增加 IPFS 的资源消耗，并且相比于其消耗的资源来说对效率的提升较为有限（氪佬随意），在使用 Crust 等托管平台而非自己做种时，不建议开启 DHT 加速**。
 
 在上传之前可以在配置选项卡中如下修改配置信息，开启 DHT 加速，DHT 加速可以提高连接节点数量，增加效率。
 
@@ -62,96 +120,121 @@ CID 在 IPFS 中对应具体文件，类似于磁链中的哈希值，因此分�
 "AcceleratedDHTClient": true,
 ```
 
-![image](https://github.com/user-attachments/assets/74c313cb-fb5b-4eef-b9cd-3db2da3dd1be)
+![](obsidian_img/Clip_2024-06-30_20-04-43.png)
 
-
-### 1.4. 关于分享文件的可用性
+### 1.4 关于分享文件的可用性
 
 IPFS 类似于磁链，也需要有人“做种”，需要有人固定文件（做种），并且在线，才可以下载。
+
 可以在这个网址中检测 CID 是否可用：
 
 [https://explore.ipld.io/](https://explore.ipld.io/)
 
-![image](https://github.com/user-attachments/assets/890df37c-dd59-4db3-9a90-17a8fe340915)
-
+![](obsidian_img/Clip_2024-06-30_21-17-59.png)
 
 ## 2. 根据 CID 下载文件
 
 下载文件和上传文件是类似的，首先需要导入文件
 
-![image](https://github.com/user-attachments/assets/87b284e0-8699-48fb-a99d-f34e36d01df6)
-
+![](https://img.picgo.net/2024/12/05/2024120520224833893768347565be.png)
 
 在弹出的窗口中输入 CID ，可以自行指定文件名
 
-![image](https://github.com/user-attachments/assets/baa5cc24-b28d-4b77-8087-7a1d6d245570)
-
+![](https://img.picgo.net/2024/12/05/2024120520230362a89a25b8b826ca.png)
 
 导入完成后点击右键，选择下载
 
-![image](https://github.com/user-attachments/assets/f2e4dc70-4ad1-4e16-a0e2-b613e22b89da)
+![](https://img.picgo.net/2024/12/05/202412052023126cc4be7ad143ecdc.png)
 
-接下来会使用浏览器的下载功能进行文件下载
+接下来会使用浏览器的下载功能进行文件下载，这种下载方式类似于 BT 是 P2P 的，能否下载成功取决于对方是否在做种。
 
-![image](https://github.com/user-attachments/assets/c22da7b1-e50b-49d3-addb-6dd24fc9362c)
-
+![](https://img.picgo.net/2024/12/05/2024120520232653243532e7f08c02.png)
 
 如果安装了 IDM、FDM 等下载软件，也可以使用这些软件接管下载，比如我用的是 FDM ：
 
-![image](https://github.com/user-attachments/assets/8735d221-8eea-4c63-9052-8f9a573f4faa)
+![](https://img.picgo.net/2024/12/05/20241205202335a8d91d5f80a2a517.png)
+
+除了类似于 BT 的 P2P 以外，IPFS 还可以采用公共网关创建分享链接的方式分享文件，公共网关本身也是一个 IPFS 节点，但拥有公网 IP ，连接速度较快，可以帮助其他节点下载。具体来说就是用它生成直链，让下载者用这个直链下载。
+
+IPFS下载链接结构为 **网关+CID** 
+
+示意图如下：
+![](https://file.cangku.moe/images/132ec0b5c32bdd957bfa2678dec8f809.webp)
+
+使用这种方式分享的时候下载者不需要软件，用浏览器、IDM 等即可直连下载。
+
+由于默认的公共网关被墙了，在分享前需要修改 IPFS 的公共网关，可以修改为以下网关中的一个：
+
+可用 IPFS 公共网关（随时更新）
+```
+https://eth.sucks
+https://flk-ipfs.xyz
+https://cdn.ipfsscan.io
+https://gw-seattle.crustcloud.io
+https://gw.crustgw.work
+https://gw.crust-gateway.xyz
+https://gateway.ipfsscan.io
+```
+
+![](https://img.picgo.net/2024/12/05/6d4b9322548aaf6cb90f580afda8c06a9205a4ba7e9a6380.webp)
+
+然后右键文件-分享链接即可
+
+![](https://img.picgo.net/2024/12/05/79b302b20e96503aab461e9af616234c6d3fabd073778c2a.webp)
+
+![](https://img.picgo.net/2024/12/05/b06de1123161326c350d2207be76cb7c0d6f3e975b476753.webp)
+
+在下面的网址可以找到更多的可用公共网关
+
+[https://ipfs.github.io/public-gateway-checker/](https://ipfs.github.io/public-gateway-checker/)
 
 
 
-## 3. IPFS 本地文件管理
+## 3. IPFS 本地配置
 
 ### 3.1 移动本地文件仓库
 
 IPFS 安装以后，默认会在用户路径（C:\\Users\\你的用户名）下方创建一个名为 `.ipfs` 的文件夹，用来存放固定的文件，如果 C 盘空间不足，可以选择移动 IPFS 仓库的默认位置。右键任务栏 IPFS 程序的图标，然后选择 Move Repository Location 即可。
 
-![image](https://github.com/user-attachments/assets/966ba251-5df6-4e14-9ce6-09df6953d674)
+![](https://img.picgo.net/2024/12/05/202412052026210a72f57affe47d3b.png)
 
-
-注意移动仓库以后，之前固定的文件会失效，需要重新根据 CID 固定文件（如果忘了 CID 就没办法了）
+注意移动仓库以后，之前固定的文件会失效，需要重新根据 CID 固定文件（如果忘了 CID 就没办法了，最好先移动仓库再开始固定文件）
 
 ### 3.2 清理非固定文件
 
 当 IPFS 的本地文件过多，可以选择任务栏图标中的 Run Garbage Collector 进行清理，这个操作会清理所有没有在文件选项卡中显示的文件释放磁盘空间。
 
-## 4. 使用 IPFS 托管平台托管文件（以 chainsafe 为例）
 
-由于 IPFS 类似磁链，属于去中心化的分享方式，假如没人开机做种，就会导致后续的下载者没有办法下载。这种时候可以使用托管平台托管文件，代为“做种”。用法类似于网盘，但是分享不通过分享系统，而是采用 CID 进行，因此没有审核、举报系统。
+## 4. 使用 IPFS 托管平台托管文件
 
-托管平台有很多，这里以 https://app.storage.chainsafe.io/ 为例说明：
+由于 IPFS 类似磁链，属于去中心化的分享方式，假如没人开机做种，就会导致后续的下载者没有办法下载。这种时候可以使用托管平台托管文件，代为“做种”。用法类似于网盘，但是分享不通过分享系统，而是采用 CID 进行，因此没有审核、举报系统，不管文件保存在哪里，只要 CID 匹配就可以下载到文件。
 
-### 4.1. 注册 chainsafe 账号
+IPFS 的托管平台有很多，和 IPFS 的网关不同，这些托管平台大多数都没有被墙可直连，比如支付加密货币把文件托管给矿工的 [**Crust**](https://crust.network/) 以及基于 Crust 开发的 [**酸奶网盘**](https://cangku.moe/archives/212970) 、可以白嫖的 Chainsafe ，这里以后者 [https://app.storage.chainsafe.io/](https://app.storage.chainsafe.io/) 为例说明，关于 Crust 可以参考 [**这篇仓库文章**](https://cangku.moe/archives/212812)[7] 的教程。
 
-![image](https://github.com/user-attachments/assets/5106d2a2-8278-4b9b-9b2b-bf832c2a99fc)
-
+### 4.1 注册 chainsafe 账号
+![](https://img.picgo.net/2024/12/05/20241205202637ba444ca263ce068e.png)
 
 登录以后的界面如下，新注册的账号有 20 GB 的免费额度
 
-![image](https://github.com/user-attachments/assets/10a1e1b1-1cbc-422a-89f5-655851f9c44b)
+![](https://img.picgo.net/2024/12/05/2024120520264932a9b8aa113f9c18.png)
 
-### 4.2. 上传并固定文件
+### 4.2 上传并固定文件到 Chainsafe
 
 点击右上角的 Create Bucket，创建一个用于存储文件的 Bucket，然后点击 Upload 选择文件进行上传
 
 **视个人网速上传速度可能会有点慢，耐心等待即可**。
 
-![image](https://github.com/user-attachments/assets/ab44d7f7-91c9-4e71-aba2-49d9b55db8e6)
+![](https://img.picgo.net/2024/12/05/20241205202659ce433e182abf5b30.png)
 
 上传完毕后复制文件的 CID，然后在第 2 个选项卡中固定（PIN）CID，可以给 CID 起名，这个名称是托管平台中显示的名称，与分享的文件名无关。
 
-![](obsidian_img/Clip_2024-06-30_23-18-16.png)
-
+![](https://img.picgo.net/2024/12/05/20241205202713116fa3dfbe359d63.png)
 
 固定后稍等动作完成
 
+![](https://img.picgo.net/2024/12/05/20241205202726f4a6f6a0aa738d34.png)
 
-![image](https://github.com/user-attachments/assets/79783b64-f634-4626-bc98-74ee18b0e5b8)
-
-
-### 4.3. 添加网关发布文件
+### 4.3 添加网关发布文件
 
 固定完成后，给 CID 加上相应的网关链接，就得到可以直连下载的分享链接了，下载过程与上文完全一致。
 
@@ -161,22 +244,105 @@ IPFS 安装以后，默认会在用户路径（C:\\Users\\你的用户名）下�
 网关 + CID + ?filename=你想要的文件名.你想要的后缀名
 ```
 
-这里给出此平台两种可以用的网关：
+这里给出此平台两种可以用的网关（推荐使用第一个）：
 
 ```
-https://ipfs.chainsafe.io/ipfs/
 https://ipfs-chainsafe.dev/ipfs/
+https://ipfs.chainsafe.io/ipfs/
 ```
 
 分享链接的例子如下：
 
 ```
-https://ipfs-chainsafe.dev/ipfs/QmPKhevNWUx89XBU82XF4UYs2xsdxZnG2xPz2uZsA6Yatm?filename=COMIC_BAVEL_2023年11月号-你被骗了.mp4
+https://ipfs-chainsafe.dev/ipfs/bafybeiasosbjq2mcc73s3e3ccb3apial7i7g2d6yz5maq52m43ge5bibgm?filename=20240724-06-COMIC_BAVEL_202408.7z
 ```
+
+### 4.4 使用 Crust 平台搭配 IPNS 轻量化做种
+
+Chainsafe 一个账号最多只能托管 20GB 的文件，对于大量分享来说还是不太够用的，如果有大量分享的需求，可以使用 Crust 托管平台，关于 Crust 平台的用法可以参考本篇仓库文章：
+
+[[技巧分享] [IPFS] 无法被举报的文件分享神器CRUST IPFS操作指南 PART.I](https://cangku.moe/archives/212812)
+
+接下来说明一些仅在使用 Crust 平台时推荐的分享技巧。  
+  
+我们可以使用 **CrustFiles** 或者 [**酸奶网盘**](https://cangku.moe/archives/212970) 把文件分别托管 (又称上链) 到 Crust 网络中，然后通过**本地 IPFS 客户端聚合文件以进行管理**。
+
+具体来说，先把文件上传到酸奶网盘（或者 CrustFiles ）进行托管，然后再把这些已经托管的文件的 CID 导入并聚合到本地 IPFS 的一个文件夹中（不必固定到本地，这样就不会占用本地空间），这样一来，本地做种**只需要做种聚合文件夹即可**，使得文件夹中的内容能被 IPFS 网络访问，**内容则交由托管平台保存，不占用本地空间**。
+
+也因此，在使用托管的情况下 IPFS 的做种比 BT 更轻量，希望大家可以积极帮助他人做种，只需要把别人的文件夹 CID 导入但不固定在本地即可（注意不要改动文件路径中的文件名，否则会导致 CID 发生变化，想重命名进行管理的话，可以新建一个文件夹把东西整个丢进去），这样一来就可以帮助他人保持文件夹路径的可用性。并且由于内容托管在矿工那里，做种不消耗自己的流量，可以减少被运营商查水表的可能性。  
+ 
+由于 IPFS 内容寻址的特性，不同内容的 CID 都是不同的，假如你的内容需要频繁更新，每次都要改链接无疑很不方便。此时可以把聚合文件夹发布到 **IPNS**，把文件夹的 CID 与 IPNS 地址相关联。  
+
+和 CID 不同， IPNS 的地址是不变的，特别适合需要持续更新的内容，其内容需要使用你节点的私钥才能更改，可以当成自己的一个“**域名**”来使用。并且这个“域名”也是去中心化的，保存在 DHT （分布式哈希表）中，只要你的节点**每天至少上一次线**，就可以保证这个“域名”可用，和传统的 HTTP 域名不同， **IPNS 即使关机也不会造成“域名”无法访问**。（如果你有普通域名的的话，也可以把 CID 和域名关联起来，也能保证可用性）  
+
+下面是我用 IPNS 发布的 IPFS 分享助手软件，其中 k51...wi25 就是 IPNS “域名”，.eth.sucks 则是子域名形式的公共网关。
+
+[https://k51qzi5uqu5dh1ts2qvcw3069src00zyjw0qmwdkb102k8q4ft8bztw75iwi25.eth.sucks](https://k51qzi5uqu5dh1ts2qvcw3069src00zyjw0qmwdkb102k8q4ft8bztw75iwi25.eth.sucks/)
+
+上面是子域名形式的链接，路径形式的链接则应该如下：
+
+[https://eth.sucks/ipns/k51qzi5uqu5dh1ts2qvcw3069src00zyjw0qmwdkb102k8q4ft8bztw75iwi25](https://eth.sucks/ipns/k51qzi5uqu5dh1ts2qvcw3069src00zyjw0qmwdkb102k8q4ft8bztw75iwi25)
+
+
+接下来我新生成一个名为 test 的 IPNS 密钥用来发布其他文件夹， IPNS 密钥的地址是固定的，这样每次更新内容后只需要把更新后的文件夹 CID 重新发布一次 IPNS 即可，不用更新链接。
+
+![f3d7d49820eff9869192e8db63618515.webp](https://file.cangku.moe/images/f3d7d49820eff9869192e8db63618515.webp)
+
+ ![8bd2890e02a1b8ace4d0e3674d7da23d.webp](https://file.cangku.moe/images/8bd2890e02a1b8ace4d0e3674d7da23d.webp)
+
+点击发布，然后稍作等待：
+
+![bd1f34ac459e15aa7ad3c31d608f91ab.webp](https://file.cangku.moe/images/bd1f34ac459e15aa7ad3c31d608f91ab.webp)
+
+复制上面的地址就可以发布了，由于 DHT 网络的广播需要时间，让 IPNS “域名”生效可能需要半个小时至一个小时左右，发布后稍作等待即可。
+
+效果如下
+
+[https://cdn.ipfsscan.io/ipns/k51qzi5uqu5dk5cbbjykfthqkz6qh9r98zauauz2n6j843rv3e93fgbfh4abiu](https://cdn.ipfsscan.io/ipns/k51qzi5uqu5dk5cbbjykfthqkz6qh9r98zauauz2n6j843rv3e93fgbfh4abiu)
+
+
+IPNS 可用公共网关
+```
+https://gw-seattle.crustcloud.io/ipfs/你的IPNS
+https://eth.sucks/ipns/你的IPNS 或者 https://你的IPNS.eth.sucks （分享和谐内容时不建议用这个网关，因为能被举报）
+https://flk-ipfs.xyz/ipns/你的IPNS  或者  https://你的IPNS.ipns.flk-ipfs.xyz
+https://cdn.ipfsscan.io/ipns/你的IPNS 
+https://gw.crustgw.work/ipns/你的IPNS 
+https://gw.crust-gateway.xyz/ipns/你的IPNS 
+https://gateway.ipfsscan.io/ipns/你的IPNS
+```
+
+### 4.5 使用 IPFS 分享助手辅助分享
+
+IPFS 分享助手是本人开发的一个小程序，用来简化 IPFS 分享的流程，主要功能有：
+
+CID 批量计算、文件批量导入、CID 批量拉取、CID 格式转换、分享链接批量生成、批量固定到 Crust 等分享相关的一站式功能：
+
+1. **本地文件的 CID 计算**：拥有 CID 计算功能，拖入即可计算某个文件的 CID，支持 v0 和 v1 两种格式；
+2. **寻找本地最佳网关**：可以对 CID **进行网关测速**，查找最合适的网关，支持多种常见网关，可自定义网关。
+3. **分享链接生成**：根据多个 CID 批量生成**网关+CID+文件名**格式的分享链接
+4. **由 CID 从 IPFS 网络拉取文件**：可以把被**多副本固定**在 IPFS 网络中（行话叫"**上链**"）的文件批量拉取到本地
+5. **把本地文件/文件夹添加到 IPFS**：支持通过拖拽文件批量添加到本地的 IPFS 仓库
+6. **IPFS 节点管理**：内置 IPFS 节点，无需额外安装，也可连接其他 IPFS 仓库的节点。
+7. **WebUI 文件管理**：可通过 WebUI 查看已上传文件列表，删除文件等，以及其他 IPFS desktop 的原生功能。
+8. **Crust 平台固定**：可以设置 Crust 平台的账号及签名来远程固定 CID 到 Crust 网络，也可以使用公共账号(无法导出固定信息)
+
+![](https://img.picgo.net/2024/12/05/20241205202749fc11eecbec452fa3.png)
+
+高级计算器及 Crust Pinner
+
+在高级计算器中，还增加了 Crust Pinner 功能，可以使用 Crust 平台提供的远程固定服务，具体可以看这个视频来了解
+
+```
+https://youtu.be/Xof9kek1orU
+```
+
+![](https://img.picgo.net/2024/12/05/20241205202801045e9058dc1a8944.png)
+
 
 ## 5. IPFS 的优缺点及适用场景的个人浅见
 
-### 5.1. 资源分享的安全级别排名
+### 5.1 资源分享的安全级别排名
 
 本人在之前的文章中讨论过分享的几种安全级别，这里简要带过一下：
 
@@ -184,17 +350,17 @@ https://ipfs-chainsafe.dev/ipfs/QmPKhevNWUx89XBU82XF4UYs2xsdxZnG2xPz2uZsA6Yatm?f
 2. 分卷压缩包及自解压压缩包：无法被在线解压，安全性高于前者。
 3. 专有格式加密文件：如 Veracrypt 加密卷等，相比于通用的压缩文件，安全性更高一些。但无法应对举报造成的强制违规。
 4. 隐写文件：无法被在线解压，并且违规可申诉，如果被举报到无法分享/下载，申诉即可。安全性高于前述所有。
-5. 磁链、IPFS 等去中心化分享方案：没有审核系统，安全性最高。但缺点是做不到长时有效稳定。
-
-总的来说，根据 【**1. 能否加密**】 【**2. 能否在线解压**】 【**3. 能否被举报**】，可以把分享方式大致划分出 3 个大的安全级别。
+5. BT、IPFS 等去中心化分享方案：没有审核系统，安全性最高。但缺点是做不到长时有效稳定。
 
 那么上述这么多级别，应该怎么选择呢？
 
-在机器学习领域有一个定理叫做“没有免费午餐定理”（NFL），是说没有一种算法可以在所有问题上都表现最好，对于安全分享这个话题，也是类似的，即不可能存在能够同时兼顾所有场景的分享方案，我们总是需要根据特定场景选择最适合的方案。
+在机器学习领域有一个定理叫做“没有免费午餐定理”（NFL），是说没有一种算法可以在所有问题上都表现最好。比如说如今的大模型领域都试图得到一个通用的模型实现 AGI，但是就目前而言，在具体下游任务上各种微调模型才是主流，今后可以预见的一段时间内应该也是如此。
+
+回到安全分享这个话题，也是类似的，即不可能存在能够同时兼顾所有场景的分享方案，我们总是需要根据特定场景选择最适合的方案。
 
 对于压缩包方案安全级别问题，我在之前的文章中已经讨论过，这里就不再赘述了，感兴趣可以参看我之前的文章，本文我想重点讨论一下 IPFS 方案的适用场景。
 
-### 5.2. IPFS 分享方案的优缺点分析
+### 5.2 IPFS 分享方案的优缺点分析
 
 本人对 IPFS 的研究比较浅薄，就站在使用者的角度发表一些浅见，算是以教代学，有不对的地方大家可以指正。
 
@@ -204,7 +370,7 @@ https://ipfs-chainsafe.dev/ipfs/QmPKhevNWUx89XBU82XF4UYs2xsdxZnG2xPz2uZsA6Yatm?f
 
 不过 IPFS 作为去中心化的分享方案，也自然有其该有的缺点：首先靠谱的托管平台不好找，其次如果资源比较冷门没人长时间固定（做种），也会出现类似于磁链那样死种的情况。但是相比于磁链， IPFS 在保种这个问题上已经有很大程度的改进了，因为可以选择托管，做种也不需要公网 IP。
 
-### 5.3. IPFS 分享方案与网盘分享方案的对比
+### 5.3 IPFS 分享方案与网盘分享方案的对比
 
 分析完上述优缺点，我们可以设想一下其适用的最佳场景，在设想之前，我们需要先对比一下网盘分享的方案。
 
@@ -212,7 +378,7 @@ https://ipfs-chainsafe.dev/ipfs/QmPKhevNWUx89XBU82XF4UYs2xsdxZnG2xPz2uZsA6Yatm?f
 
 根据# 2022年中国个人网盘市场研究报告(https://www.iimedia.cn/c400/84607.html)
 
-![image](https://github.com/user-attachments/assets/dc72d947-bb83-43ef-ba53-0cd02f4998c9)
+![](https://img.picgo.net/2024/12/05/20241205202818a5353189588aefb4.png)
 
 图中的和彩云是现在的中国移动云盘。
 
@@ -230,13 +396,11 @@ https://ipfs-chainsafe.dev/ipfs/QmPKhevNWUx89XBU82XF4UYs2xsdxZnG2xPz2uZsA6Yatm?f
 
 倒卖者可以做到全程不下载任何文件，直接就能流水线式地在云端进行转存举报等一系列操作，倒卖者也不需要关注具体举报哪个文件，只需要源源不断地把转存后的文件放入举报池中即可，如此构建起一个简单易操作、成本又可控的举报工作流。只要每天开机运行一遍，就可以让所有举报池中的文件违规（隐写文件因为可申诉，时不时会复活，需要每天都举报）。
 
-看到这有人可能会奇怪，怎么我好像跟他们有仇一样，一直关注这件事，那是因为在之前在研究评论区地毯式炸链时我的账号被倒卖者举报了，我在这篇文章中提到我收到了来自百度网盘的警告，但其实我没有说实话，真实情况是百度网盘并没有警告我，而是直接封了我的号。其间各种损失和折腾有多少我就不多提了，总之只要这帮人还在仓库里，这件事我会一直关注下去，长驱鬼魅不休战。
-
-言归正传，目前对于倒卖者的举报，网盘分享方案也确实没有太好的办法，之前试验的各种外网盘（Mega、PikPak、Gofile、ModsFire、MediaFire 等）也纷纷败下阵来。由于外网盘的封禁政策颇为严厉，一炸链就封号，不像国内网盘一般只是禁止该文件分享。出于文件安全角度考虑，分享还是最好选择国内网盘。
+目前对于倒卖者的举报，网盘分享方案也确实没有太好的办法，之前试验的各种外网盘（Mega、PikPak、Gofile、ModsFire、MediaFire 等）也纷纷败下阵来。由于外网盘的封禁政策颇为严厉，一炸链就封号，不像国内网盘一般只是禁止该文件分享。出于文件安全角度考虑，分享还是最好选择国内网盘。
 
 不过，根据我最近的一些传火，我发现倒卖者目前处理不了阿里云盘的隐写文件，个人猜测是因为阿里云的举报需要上传截图以及写小作文的原因，想要拿到截图需要下载文件，也需要写小作文跟网盘方说明，这或许导致举报工作流成本不可控。倒卖者是商人，不是恶人，亏本的买卖不好做。不过这也只是目前的结果，毕竟对方可能会孜孜不倦地举报，或者找到了低成本举报的办法，总归是存在隐患。
 
-### 5.4 IPFS 分享方案的适用场景：倒卖者的举报
+### 5.4 IPFS 分享方案的适用场景：恶意举报
 
 小结一下，网盘分享方案虽然在长时间维持资源有效性和可用性方面具有优势，但是在面对倒卖者时是无能为力的。
 
@@ -244,11 +408,7 @@ https://ipfs-chainsafe.dev/ipfs/QmPKhevNWUx89XBU82XF4UYs2xsdxZnG2xPz2uZsA6Yatm?f
 
 俗话说只有千日做贼没有千日防贼，倒卖者也不可能无限制地累积举报池的文件，迟早有一天会移除失效已久的文件，此时若有人再要资源，只需要申诉隐写文件解除违规，再进行分享即可，不需要重新压缩上传。
 
-![image](https://github.com/user-attachments/assets/36a20383-9302-47a6-8dfe-d7617cc06c9a)
-
 解除违规后不急着分享，先观察一天，看有没有再次违规。一天后在文件详情中点一下申诉，如果提示“请勿申诉正常文件”，就证明文件已经被倒卖者移出了举报池，可以分享了。资源生效以后不要在评论区说明，以免被倒卖者注意到。
-
-![image](https://github.com/user-attachments/assets/b8c459f9-8e68-4b9e-a92c-82689c59664e)
 
 （需要注意隐写文件的伪装有效性问题，详情参考隐写者软件的文章）。
 
@@ -268,11 +428,19 @@ https://ipfs-chainsafe.dev/ipfs/QmPKhevNWUx89XBU82XF4UYs2xsdxZnG2xPz2uZsA6Yatm?f
 
 ## 7. 参考
 
-```
+
  [[技巧分享] 用ipfs存储并分享文件](https://cangku.moe/archives/207441)
+ 
  [[技巧分享] 关于去中心化文件分享软件的使用与杂谈](https://cangku.moe/archives/212179)
+ 
  [[高阶文章] 关于新时代文件分享机制的思考](https://cangku.moe/archives/178593)
+ 
  [[工具分享] 隐写者：把资源嵌入MP4文件的隐写工具 [资源防炸链解决方案倡议&规避网盘审查技巧探讨]](https://cangku.moe/archives/211602)
+ 
  [[技巧分享] 网盘资源分享的几种安全级别、审核与举报原理、分享建议 [资源防炸链解决方案倡议]](https://cangku.moe/archives/212002)
+ 
  [[技巧分享] 关于评论区地毯式炸链现象的一些测试及初步猜想 [资源防炸链解决方案倡议]](https://cangku.moe/archives/211857)
-```
+ 
+ [[技巧分享] [IPFS] 空间无限还能淦似倒狗的文件分享神器CRUST：操作指南以及总结报告](https://cangku.moe/archives/212812)
+ 
+
