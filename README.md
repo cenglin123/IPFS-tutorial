@@ -4,6 +4,7 @@
 
 本文详细介绍了 IPFS（星际文件系统）的使用方法、优缺点及其在资源分享中的应用场景。文章首先讲解了 IPFS 的基本操作，包括文件的上传、固定、分享和下载。随后，介绍了 IPFS 本地文件管理和使用托管平台的方法。最后，文章对比了 IPFS 与传统网盘分享方案，提出了分场景使用不同级别分享方案的建议， 分析了 IPFS 作为最终手段，在应对恶意举报问题上的优势。
 
+[测试链接](https://gw-seattle.crustcloud.io/ipfs/bafybeihzpvolsy7kt2ug37nwau2d4a5cfcl3bvafsssphpdw7voi5rjadm?filename=wukong.png)
 
 **更新**：
 
