@@ -92,11 +92,14 @@ bafybeibcr7x6d2bo43ce6xaye6d6aogvbfmeokphpsvjlqv27udl34ads4
 
 右键点击上传后的文件，设置固定
 
-![](https://img.picgo.net/2024/12/05/20241205203155fa9e1c9809c35991.png)
+![右键点击上传后的文件，设置固定](https://github.com/user-attachments/assets/911ea750-86e4-4507-8729-88f45ae7bbdf)
+
 
 固定在本地节点
 
-![](https://img.picgo.net/2024/12/05/202412052032108aba5df49d57dd78.png)
+![固定在本地节点](https://github.com/user-attachments/assets/36a9d9af-b858-4802-bffd-1ec8b1a033fa)
+
+
 
 ### 1.2 复制 CID 以发布文件
 
