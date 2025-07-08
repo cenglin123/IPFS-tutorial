@@ -88,7 +88,7 @@ bafybeibcr7x6d2bo43ce6xaye6d6aogvbfmeokphpsvjlqv27udl34ads4
 
 配置完毕后，就可以开始固定文件了
 
-![](https://img.picgo.net/2024/12/05/2024120520314490a5c6efd120c623.png)
+![1rqjK.png](https://pic.cangku.moe/images/2025/07/09/1rqjK.png)
 
 右键点击上传后的文件，设置固定
 
