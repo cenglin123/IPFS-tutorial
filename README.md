@@ -97,7 +97,7 @@ bafybeibcr7x6d2bo43ce6xaye6d6aogvbfmeokphpsvjlqv27udl34ads4
 
 固定在本地节点
 
-![固定在本地节点](https://github.com/user-attachments/assets/36a9d9af-b858-4802-bffd-1ec8b1a033fa)
+![1rxe6.png](https://pic.cangku.moe/images/2025/07/09/1rxe6.png)
 
 
 
@@ -107,7 +107,8 @@ bafybeibcr7x6d2bo43ce6xaye6d6aogvbfmeokphpsvjlqv27udl34ads4
 
 可以采用分享链接的方式分享文件，由于默认的公共网关被墙了，在分享前建议修改 IPFS 公共网关。
 
-![](../../obsidian_img_files/6d4b9322548aaf6cb90f580afda8c06a.webp)
+![1rT4i.webp](https://pic.cangku.moe/images/2025/07/09/1rT4i.webp)
+
 
 可用 IPFS 公共网关（随时更新）参考：
 [https://k51qzi5uqu5djx3hvne57dwcotpc8h76o2ygrxh05kck11j6wnhvse8jrfzf2w.ipns.dweb.link/](https://k51qzi5uqu5djx3hvne57dwcotpc8h76o2ygrxh05kck11j6wnhvse8jrfzf2w.ipns.dweb.link/)
@@ -160,11 +161,11 @@ IPFS 安装以后，默认会在用户路径（C:\\Users\\你的用户名）下�
 
 接下来会使用浏览器的下载功能进行文件下载，先固定后下载或者直接下载这 2 种下载方式，原理都类似于 BT 是 P2P 的，能否下载成功取决于是否有人在做种。
 
-![](https://img.picgo.net/2024/12/05/2024120520232653243532e7f08c02.png)
+![1rXkq.png](https://pic.cangku.moe/images/2025/07/09/1rXkq.png)
 
 如果安装了 IDM、FDM 等下载软件，也可以使用这些软件接管下载，比如我用的是 FDM ：
 
-![](https://img.picgo.net/2024/12/05/20241205202335a8d91d5f80a2a517.png)
+![1rmIp.png](https://pic.cangku.moe/images/2025/07/09/1rmIp.png)
 
 
 ### 2.2 使用 IPFS 公共网关下载文件
