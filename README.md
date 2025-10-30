@@ -5,8 +5,9 @@
 <p style="text-align:center;">如果看不了油管视频，可以在 <a href="https://gateway.pinata.cloud/ipfs/bafybeietvf3b44xlecktxegyutdwtedse42qriv7tisc4c7nzhmloqdq6i?filename=1.mp4" rel="noreferrer noopener" target="_blank"><strong>备选线路1</strong></a> <a href="https://lensshare.4everland.link/ipfs/bafybeietvf3b44xlecktxegyutdwtedse42qriv7tisc4c7nzhmloqdq6i?filename=1.mp4" rel="noreferrer noopener" target="_blank"><strong>备选线路2</strong></a>&nbsp; <a href="https://gw.ipfs-lens.dev/ipfs/bafybeietvf3b44xlecktxegyutdwtedse42qriv7tisc4c7nzhmloqdq6i?filename=1.mp4" rel="noreferrer noopener" target="_blank"><strong>备选线路3</strong></a> 观看</p>
 
 本文首发在绅士仓库：
-[https://cangku.moe/archives/212530](https://cangku.moe/archives/212530)
-[https://www.south-plus.net/read.php?tid-2357385.html](https://www.south-plus.net/read.php?tid-2357385.html)
+[https://cangku.moe/archives/212530](https://cangku.moe/archives/212530) 以及南+ [https://www.south-plus.net/read.php?tid-2357385.html](https://www.south-plus.net/read.php?tid-2357385.html)
+
+IPFS 分享助手：[https://github.com/cenglin123/IPFS-ShareAssistant](https://github.com/cenglin123/IPFS-ShareAssistant)
 
 IPFS 下载辅助油猴脚本：[https://github.com/cenglin123/ipfs-cid-copy-helper](https://github.com/cenglin123/ipfs-cid-copy-helper)
 
