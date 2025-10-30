@@ -8,6 +8,8 @@
 [https://cangku.moe/archives/212530](https://cangku.moe/archives/212530)
 [https://www.south-plus.net/read.php?tid-2357385.html](https://www.south-plus.net/read.php?tid-2357385.html)
 
+IPFS 下载辅助油猴脚本：[https://github.com/cenglin123/ipfs-cid-copy-helper](https://github.com/cenglin123/ipfs-cid-copy-helper)
+
 ## IPFS 分享资源快速上手及其适用场景浅议
 
 ![IPFS](https://pic.cangku.moe/images/2025/06/06/1UPB2.png)
