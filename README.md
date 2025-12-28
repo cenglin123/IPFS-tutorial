@@ -43,7 +43,7 @@ IPFS 下载辅助油猴脚本：[https://github.com/cenglin123/ipfs-cid-copy-hel
 
 **文章目录**
 
-![142CF.jpg](https://pic.cangku.moe/images/2025/09/07/142CF.jpg)
+![4XP4L.jpg](https://pic.cangku.moe/images/2025/12/28/4XP4L.jpg)
 
 
 ## 关于 IPFS 的几个要点：
@@ -93,7 +93,7 @@ bafybeibcr7x6d2bo43ce6xaye6d6aogvbfmeokphpsvjlqv27udl34ads4
 
 右键点击上传后的文件，设置固定
 
-![](https://img.picgo.net/2024/12/05/20241205203155fa9e1c9809c35991.png)
+![](https://pic.cangku.moe/images/2025/12/28/4TDhk.png)
 
 固定在本地节点
 
@@ -128,7 +128,7 @@ https://check.ipfs.network/
 
 ![](https://pic.cangku.moe/images/2025/05/19/y5LRk.png)
 
-![](https://img.picgo.net/2024/12/05/20241205203239f608787b9912c03c.png)
+![](https://pic.cangku.moe/images/2025/12/28/4TaGo.png)
 
 ### 1.3 移动本地文件仓库
 
@@ -144,17 +144,17 @@ IPFS 安装以后，默认会在用户路径（C:\\Users\\你的用户名）下�
 
 下载文件和上传文件是类似的，首先需要导入文件
 
-![](https://img.picgo.net/2024/12/05/2024120520224833893768347565be.png)
+![](https://pic.cangku.moe/images/2025/12/28/4TbiI.png)
 
 在弹出的窗口中输入 CID ，可以自行指定文件名
 
-![](https://img.picgo.net/2024/12/05/2024120520230362a89a25b8b826ca.png)
+![](https://pic.cangku.moe/images/2025/12/28/4TKp6.png)
 
 在下载前建议先设置固定，只要固定完成了，文件就一定可以保存到本地，以避免直接下载过程中出现错误。（固定一个来自 IPFS 路径的 CID 可能会需要一定时间，因为要从其他节点拉取文件）
 
 固定完成后点击右键，选择下载：
 
-![](https://img.picgo.net/2024/12/05/202412052023126cc4be7ad143ecdc.png)
+![](https://pic.cangku.moe/images/2025/12/28/4TMXi.png)
 
 接下来会使用浏览器的下载功能进行文件下载，先固定后下载或者直接下载这 2 种下载方式，原理都类似于 BT 是 P2P 的，能否下载成功取决于是否有人在做种。
 
@@ -176,27 +176,16 @@ IPFS下载链接结构为 **网关+CID** 
 
 使用这种方式分享的时候下载者不需要软件，用浏览器、IDM 等即可直连下载。
 
-由于默认的公共网关被墙了，在分享前需要修改 IPFS 的公共网关，可以修改为以下网关中的一个：
-
-```
-https://ipfs.hypha.coop
-https://gw.ipfs-lens.dev
-https://gateway.pinata.cloud
-https://eth.sucks
-https://i0.img2ipfs.com
-https://gw.crustgw.work
-https://gw.crust-gateway.xyz
-```
+由于默认的公共网关被墙了，在分享前需要修改 IPFS 的公共网关，可以参考此页面并修改为可用网关中的一个：
+- [IPNS可用的网关](https://k51qzi5uqu5djx3hvne57dwcotpc8h76o2ygrxh05kck11j6wnhvse8jrfzf2w.ipns.dweb.link/#ipns-gateways)
 
 按照下图所示设置：
 
-![](https://img.picgo.net/2024/12/05/6d4b9322548aaf6cb90f580afda8c06a9205a4ba7e9a6380.webp)
+![](https://pic.cangku.moe/images/2025/12/28/4TVeT.jpg)
 
 然后右键文件-分享链接即可
 
-![](https://img.picgo.net/2024/12/05/79b302b20e96503aab461e9af616234c6d3fabd073778c2a.webp)
-
-![](https://img.picgo.net/2024/12/05/b06de1123161326c350d2207be76cb7c0d6f3e975b476753.webp)
+![](https://pic.cangku.moe/images/2025/12/28/4TBQK.jpg)
 
 
 其他寻找公共网关的方法：
@@ -222,7 +211,7 @@ http://127.0.0.1:8080/ipfs/bafybeihon37a3qtxqynvphkt4ebe3hd42tdrfw4gstsadka5yijz
 
 这个 CID 对应的是一个 html 文件，因此被浏览器渲染成了网页的样子，按 ctrl+s 可以把这个文件下载到本地查看，对于其他格式资源也是同理，这也就是为什么 IPFS 分享的东西能被浏览器或者 IDM 或者 FDM 等下载器直接下载的原因了。
 
-![](https://img.picgo.net/2025/01/10/PixPin_2025-01-10_17-56-16727e15eafe5521eb.jpg)
+![](https://pic.cangku.moe/images/2025/12/28/4To1v.png)
 
 此外，在安装 IPFS 客户端的情况下，在浏览器地址栏输入：
 
@@ -236,13 +225,11 @@ ipfs://bafybeihon37a3qtxqynvphkt4ebe3hd42tdrfw4gstsadka5yijz3fjbfe
 
 `.ipfs.localhost:8080` 中最后 4 位数字为本地网关的端口号，通常为 `8080`，但是有时候也可能变化，此时端口被占用就无法使用，常见原因比如酸奶网盘与 IPFS 客户端冲突等，如果发现本地网关无法使用，如下图所示：
 
-![](https://img.picgo.net/2025/01/10/PixPin_2025-01-10_17-47-21698d8847b5155f08.jpg)
+![](https://pic.cangku.moe/images/2025/12/28/4TyuD.png)
 
 此时需要查看本地节点的 .`ipfs` 仓库中的 `config` 文件，右键用记事本打开后，下图中箭头所指的四位数字就是你的本地网关端口号，使用这个端口号即可。
 
-![](https://img.picgo.net/2025/01/10/PixPin_2025-01-10_17-41-459321c657d8751ada.jpg)
-
-![](https://img.picgo.net/2025/01/10/PixPin_2025-01-10_17-44-225dc315a75c33eb11.jpg)
+![](https://pic.cangku.moe/images/2025/12/28/4TOa1.png)
 
 
 ### 2.4 使用 FDM 批量下载 IPFS 链接
@@ -302,7 +289,7 @@ CID 批量计算、文件批量导入、CID 批量拉取、CID 格式转换、�
 "AcceleratedDHTClient": true,
 ```
 
-![](https://img.picgo.net/2024/12/05/20241205203249b7e89dfd81133733.png)
+![](https://pic.cangku.moe/images/2025/12/28/4TZZs.png)
 
 ### 3.5 关于分享文件的可用性
 
@@ -312,66 +299,22 @@ IPFS 类似于 BT，也需要有人“做种”，需要有人固定文件（做
 
 [https://explore.ipld.io/](https://explore.ipld.io/)
 
-![](https://img.picgo.net/2024/12/05/20241205203301feb92e5d8dbef6b6.png)
-
 也可以使用 IPFS 分享助手进行测速来确认文件是否可用。
 
 ## 4. 使用 IPFS 托管平台托管文件
 
 由于 IPFS 类似 BT 属于去中心化的分享方式，假如没人开机做种，就会导致后续的下载者没有办法下载。这种时候可以使用托管平台托管文件，代为“做种”。用法类似于网盘，但是分享不通过分享系统，而是采用 CID 进行，因此没有审核、举报系统，不管文件保存在哪里，只要 CID 匹配就可以下载到文件。
 
-IPFS 的托管平台有很多，和 IPFS 的网关不同，这些托管平台大多数都没有被墙可直连，比如支付加密货币把文件托管给矿工的 [**Crust**](https://crust.network/) 以及基于 Crust 开发的 [**酸奶网盘**](https://cangku.moe/archives/212970) 、以及目前免费的 [Aleph](https://www.south-plus.net/read.php?tid-2504124-keyword-Aleph.html)。
+IPFS 的托管平台有很多，和 IPFS 的网关不同，这些托管平台大多数都没有被墙可直连，比如支付加密货币把文件托管给矿工的 [**Crust**](https://crust.network/) 以及基于 Crust 开发的 [**酸奶网盘**](https://cangku.moe/archives/212970) 、以及目前免费的 Filecoin-pin、[Aleph](https://www.south-plus.net/read.php?tid-2504124-keyword-Aleph.html)。
 
+### 4.1 使用 Filecoin-pin 平台上传文件
 
-### 4.1 使用酸奶网盘托管文件到 Crust 平台
+参考以下文章，使用 IPFS 分享助手一键上传
 
-```
-2025/05/19 更新：由于 Crust 网络现在状态不佳，本节部分的内容仅供参考。
-```
+![4SbxP.jpg](https://pic.cangku.moe/images/2025/12/05/4SbxP.jpg)
 
-本节内容**是一个操作流程**，旨在快速上手，只需要按照流程操作即可，具体的原理及解释详见 4.3 节。
-
-以下正式开始
-
-打开 [https://yoghourt.cloud/](https://yoghourt.cloud/) 酸奶网盘的官网，下载最新版酸奶网盘并安装，或者在这里下载
-[https://gw.crustgw.work/ipfs/bafybeiaeq2sblmnjvs27qr7romzc6ryqz5qiy6ng2ltrs7tgxux7rdeqh4?filename=yogurt-cloud-client-0.1.4-setup.exe](https://gw.crustgw.work/ipfs/bafybeiaeq2sblmnjvs27qr7romzc6ryqz5qiy6ng2ltrs7tgxux7rdeqh4?filename=yogurt-cloud-client-0.1.4-setup.exe)
-
-当右下角显示 IPFS 连接成功，即可拖入上传文件
-
-![](https://img.picgo.net/2024/11/06/20241106002704a068479ff75ee1f9.png)
-
-然后等待上传完毕
-
-![](https://img.picgo.net/2024/11/06/202411060027465568a922957fbee4.png)
-
-上传完毕后等待至副本数大于 0
-
-![](https://img.picgo.net/2024/11/06/20241106002939eda4e5db20620942.png)
-
-然后打开 [IPFS 分享助手](https://cangku.moe/archives/213088)：
-
-[https://k51qzi5uqu5dh1ts2qvcw3069src00zyjw0qmwdkb102k8q4ft8bztw75iwi25.eth.sucks/](https://k51qzi5uqu5dh1ts2qvcw3069src00zyjw0qmwdkb102k8q4ft8bztw75iwi25.eth.sucks/)
-
-1. 在右下角的计算器中拖入那个文件，然后计算 CID 后点击【填写CID和文件名到主输入框】，  
-2. 填写后点击【下载网关测速】，  
-3. 测速完成后点击【生成下载链接】，即可得到能直接链接到资源的链接了，  
-4. 再点击【复制下载链接】，即可复制链接并发布，下载的时候只需要打开这个链接，用浏览器或 IDM 就能下载。
-
-![](https://img.picgo.net/2024/11/06/20241106003400214b19f1a669894e.png)
-
-
-如果某个链接不能用了，把链接中的 CID (即 baf...6cwe 这样的字符串) 复制后填入图中的位置，重复 2 3 4 步骤即可。
-
-下面是最终得到的链接，可以直接在浏览器中打开使用：
-
-```
-[img]https://i0.img2ipfs.com/ipfs/bafkreibm2z34rvt5qhbiz3cv4524skjefg2mard7h4i7stqinpi5sl6cwe?filename=%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%88%86%E4%BA%AB%EF%BC%9F.jpg[/img]
-```
-
-这是刚才上传的图
-
-![](https://i0.img2ipfs.com/ipfs/bafkreibm2z34rvt5qhbiz3cv4524skjefg2mard7h4i7stqinpi5sl6cwe?filename=%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%88%86%E4%BA%AB%EF%BC%9F.jpg)
-
+**[[教程] 使用 IPFS 分享助手白嫖 Filecoin 网络存储](https://github.com/cenglin123/IPFS-ShareAssistant/wiki)**
+**[[技巧分享] [IPFS] 通过filecoin-pin网络上传ipfs文件](https://www.south-plus.net/read.php?tid-2709881.html)**
 
 ### 4.2 使用 aleph.im 进行托管
 
@@ -391,8 +334,52 @@ IPFS托管网页（上面的访问不了可以看这个）
 Aleph 分享助手下载
 [https://github.com/cenglin123/aleph-managerGUI](https://github.com/cenglin123/aleph-managerGUI/releases/latest)
 
+### 4.3 使用酸奶网盘托管文件到 Crust 平台
 
-### 4.3 使用托管平台搭配 IPNS 托管文件夹
+```
+2025/05/19 更新：由于 Crust 网络现在状态不佳，本节部分的内容仅供参考。
+```
+
+本节内容**是一个操作流程**，旨在快速上手，只需要按照流程操作即可，具体的原理及解释详见 4.3 节。
+
+以下正式开始
+
+打开 [https://yoghourt.cloud/](https://yoghourt.cloud/) 酸奶网盘的官网，下载最新版酸奶网盘并安装，或者在这里下载
+[https://gw.crustgw.work/ipfs/bafybeiaeq2sblmnjvs27qr7romzc6ryqz5qiy6ng2ltrs7tgxux7rdeqh4?filename=yogurt-cloud-client-0.1.4-setup.exe](https://gw.crustgw.work/ipfs/bafybeiaeq2sblmnjvs27qr7romzc6ryqz5qiy6ng2ltrs7tgxux7rdeqh4?filename=yogurt-cloud-client-0.1.4-setup.exe)
+
+当右下角显示 IPFS 连接成功，即可拖入上传文件
+
+![](https://img.picgo.net/2024/11/06/20241106002704a068479ff75ee1f9.png)
+
+等待上传完毕，然后打开 [IPFS 分享助手](https://cangku.moe/archives/213088)：
+
+下载链接：[https://github.com/cenglin123/IPFS-ShareAssistant](https://github.com/cenglin123/IPFS-ShareAssistant)
+或者
+[https://k51qzi5uqu5dh1ts2qvcw3069src00zyjw0qmwdkb102k8q4ft8bztw75iwi25.eth.sucks/](https://k51qzi5uqu5dh1ts2qvcw3069src00zyjw0qmwdkb102k8q4ft8bztw75iwi25.eth.sucks/)
+
+1. 在 CID 计算器中拖入那个文件，然后【计算 CID 】
+2. 填写后点击【网关测速】，
+3. 测速完成后点击【生成下载链接】，即可得到能直接链接到资源的链接了，  
+4. 再点击【复制链接】，即可复制链接并发布，下载的时候只需要打开这个链接，用浏览器或 IDM 就能下载。
+
+![16Lkz.png](https://pic.cangku.moe/images/2025/10/31/16Lkz.png)
+
+
+如果某个链接不能用了，把链接中的 CID (即 baf...6cwe 这样的字符串) 复制后填入图中的位置，重复 2 3 4 步骤即可。
+
+下面是最终得到的链接，可以直接在浏览器中打开使用：
+
+```
+[img]https://i0.img2ipfs.com/ipfs/bafkreibm2z34rvt5qhbiz3cv4524skjefg2mard7h4i7stqinpi5sl6cwe?filename=%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%88%86%E4%BA%AB%EF%BC%9F.jpg[/img]
+```
+
+这是刚才上传的图
+
+![](https://i0.img2ipfs.com/ipfs/bafkreibm2z34rvt5qhbiz3cv4524skjefg2mard7h4i7stqinpi5sl6cwe?filename=%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%88%86%E4%BA%AB%EF%BC%9F.jpg)
+
+
+
+### 4.4 使用托管平台搭配 IPNS 托管文件夹
 
 接下来说明一些仅在使用托管平台时推荐的分享技巧。  
   
@@ -448,13 +435,13 @@ IPFS 全称“**星际文件系统**”，既然是文件系统，自然是能�
 
 可以给大家看一下我的某个 IPFS 仓库，注意右上角的显示大小和实际占用大小。
 
-![](https://img.picgo.net/2024/11/14/PixPin_2024-11-14_16-20-32f54afe96d14f94af.jpg)
+![](https://pic.cangku.moe/images/2025/12/28/4TIgF.jpg)
 
 在这样的情况下，**CID 也就可以类比百度网盘的秒传链接了，本地的 IPFS 节点则类比一个网盘客户端**。而导入 CID 的过程自然就是“**转存**”了。不过这里的转存我加了双引号，是因为虽然很类似，但是 IPFS 节点导入 CID 和网盘转存还是有区别的。
 
-IPFS 是一个去中心化的系统，由众多节点组成，就像下面这张图里一样，每个节点都是网络的一部分，彼此平等，不存在客户端和服务端的区别，或者说节点既是客户端也是服务端。
+IPFS 是一个去中心化的系统，由众多节点组成，就像下面这张图 (c) 所示一样，每个节点都是网络的一部分，彼此平等，不存在客户端和服务端的区别，或者说节点既是客户端也是服务端。
 
-![](https://img.picgo.net/2024/11/14/2024111416255245078ca26837916b.png)
+![](https://pic.cangku.moe/images/2025/12/28/4Tdpa.png)
 
 这一点熟悉 BT 的朋友应该能理解是什么意思，因为 IPFS 的底层大量地借鉴了 BT。
 
@@ -474,7 +461,7 @@ IPFS 下载文件也就可以理解为是根据树的结构在整个 IPFS 网络
 
 **这些块具体由谁保存并不重要**，只要 IPFS 网络中存在这个 CID 所对应的块，即使相隔很远，也能通过多次节点跳转找到。
 
-![](https://img.picgo.net/2024/11/14/PixPin_2024-11-14_16-42-2991c05a31e417c17f.jpg)
+![](https://pic.cangku.moe/images/2025/12/28/4TrXn.png)
 
 一个 CID 只能对应一个独立的文件块，并不能表示这个树长什么样，这个树的结构其实被保存在你本地的 IPFS 节点的 DHT （分布式哈希表）中。
 
@@ -488,15 +475,13 @@ IPFS 下载文件也就可以理解为是根据树的结构在整个 IPFS 网络
 
 对于已经存储在 IPFS 公网中的 CID，是可以被任意新加入的 IPFS 节点访问的，具体来说，按下图操作即可把一个 CID 连同其树结构，一起导入到本地 IPFS 节点中。
 
-![](https://img.picgo.net/2024/11/14/PixPin_2024-11-14_17-49-3719c7fc52f36d3943.jpg)
+![](https://pic.cangku.moe/images/2025/12/28/4T3JO.jpg)
 
-使用 IPFS 分享助手的情况下，点击右下角的 【WebUI】 按钮可以打开上述界面。
+使用 IPFS 分享助手的情况下，点击【WebUI】 按钮可以打开上述界面。
 
-![](https://img.picgo.net/2024/11/14/PixPin_2024-11-14_17-53-2068f695e709457e91.jpg)
+不过上述情况并没有导入数据，所以如果要进行下载，需要右键文件，然后点击【设置固定】，选择固定到【本地节点】才能保存文件数据到本地节点（也就是矿工所做的事情）。
 
-这种情况并没有导入数据，所以如果要进行下载，需要右键文件，然后点击【设置固定】，选择固定到【本地节点】才能保存文件数据到本地节点（也就是矿工所做的事情）。
-
-![](https://img.picgo.net/2024/11/14/PixPin_2024-11-14_17-57-142d5973848ed1309c.jpg)
+![](https://pic.cangku.moe/images/2025/12/28/4TRIM.jpg)
 
 不过，假如需要导入的 CID 很多就很不方便了。
 
@@ -508,24 +493,28 @@ IPFS 下载文件也就可以理解为是根据树的结构在整个 IPFS 网络
 
 具体如下图所示：
 
-![](https://img.picgo.net/2024/11/14/PixPin_2024-11-14_18-16-348a5ebbe4af257e16.jpg)
+![](https://pic.cangku.moe/images/2025/12/28/4TwQP.jpg)
 
 然后点击【WebUI】可以进行确认
 
-![](https://img.picgo.net/2024/11/14/PixPin_2024-11-14_18-21-1467a355d7bfcbcd3f.jpg)
+![](https://pic.cangku.moe/images/2025/12/28/4TzWL.jpg)
 
-IPFS 程序有一个小问题，即使在配置中设置了默认启用 cidv1，新建文件夹时依然是 cidv0，这里有个权宜之计是先单独从 IPFS 路径导入一个 cidv1 格式的空文件夹，然后再把文件导入到里面。
+注意**文件名会影响文件夹 CID 的计算**，需要注意保持文件夹下文件的文件名不变才能保证文件夹 CID 正确，文件夹自身的名字则无所谓，这点在进行文件管理时需要注意。可以新建一个文件夹把所有内容原样丢进去，然后重命名最上层的文件夹进行文件管理。
 
-cidv1 格式的空文件夹 CID 如下
-```
-bafybeiczsscdsbs7ffqz55asqdf3smv6klcw3gofszvwlyarci47bgf354
-```
+### 5.4 导出文件信息为 JSON 文件
 
-注意**文件名会影响文件夹 CID 的计算**，需要注意保持文件夹下文件的文件名不变才能保证文件夹 CID 正确，文件夹自身的名字则无所谓，这点在进行文件管理时需要注意。
+IPFS 分享助手提供导出文件信息为 JSON 文件的功能，计算 CID 完毕后可以导出为类似于 BT 种子文件的 JSON 文件，里面会记录文件相关的信息。
 
-实在求稳的话，可以新建一个文件夹把所有内容原样丢进去，然后重命名最上层的文件夹进行文件管理。
+![4T5jc.jpg](https://pic.cangku.moe/images/2025/12/28/4T5jc.jpg)
 
-### 5.4 IPFS 轻量化做种：通过P2P网络辅助公共网关发现文件
+可以手动导入，也可以使用 IPFS 分享助手的读取 JSON 文件功能把文件信息读取到主输入框中，然后导入
+
+![4Thca.jpg](https://pic.cangku.moe/images/2025/12/28/4Thca.jpg)
+
+JSON 文件内容示例
+![4T6NF.jpg](https://pic.cangku.moe/images/2025/12/28/4T6NF.jpg)
+
+### 5.5 IPFS 轻量化做种：通过P2P网络辅助公共网关发现文件
 
 在 IPFS 节点中导入 CID 完毕后就可以开始做种了，文件保存在矿工手里，因此流量也由矿工承担。
 
@@ -551,7 +540,7 @@ bafybeiczsscdsbs7ffqz55asqdf3smv6klcw3gofszvwlyarci47bgf354
 
 内容寻址使得 IPFS 网络中的内容不必保存在某个具体的位置，只要网络中有人保存了，就能从他那里下载（保存的人通常是矿工，当然也可以自己保存并做种，把文件固定在本地就可以了）。
 
-这样的做法极大地提升了内容的安全性，这样一来举报者就没有办法向某个具体的网盘或者机构恶意举报，一次性封禁文件了。换言之 IPFS 通过主动割裂分享和存储之间的联系，从而达成了在内容托管上的权责不明。
+这样的做法极大地提升了内容的安全性，这样一来举报者就没有办法向某个具体的网盘或者机构恶意举报，一次性封禁文件了。**换言之 IPFS 通过主动割裂分享和存储之间的联系，从而达成了在内容托管上的权责不明**。
 
 权责不明就是安全分享的最佳实践方案（不能伤害一个无法选中的单位）。
 
@@ -639,7 +628,7 @@ N+
 
 根据 2022年中国个人网盘市场研究报告(https://www.iimedia.cn/c400/84607.html)
 
-![](https://img.picgo.net/2024/12/05/20241205202818a5353189588aefb4.png)
+![](https://pic.cangku.moe/images/2025/12/28/4T813.png)
 
 图中的和彩云是现在的中国移动云盘。
 
@@ -891,3 +880,4 @@ A: 可以导入一份重复的 CID，重复的 CID 只占据一份空间，只�
 
 Q: 导入 CID 的时候不会读取文件名，需要自己重新命名。有没有批量处理的办法？
 A: 可以使用 IPFS 分享助手来完成导入，看本文 5.3 节 批量“转存”文件到本地 IPFS 节点 [https://cangku.moe/archives/212530#heading-25](https://cangku.moe/archives/212530#heading-25)
+[https://cangku.moe/archives/212530#heading-25](https://cangku.moe/archives/212530#heading-25)
